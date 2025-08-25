@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0a;
+  --fg: #f3f4f6;
+  --muted: #9ca3af;
+  --card: #111827;
+  --accent: #60a5fa;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+.section {
+  @apply py-16 md:py-24;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-semibold tracking-tight mb-8;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm;
+}
+
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur;
+}
+
+.nav-link {
+  @apply text-sm md:text-base text-gray-300 hover:text-white transition-colors;
+}
