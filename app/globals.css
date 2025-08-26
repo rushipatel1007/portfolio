@@ -7,34 +7,44 @@
   --fg: #f3f4f6;
   --muted: #9ca3af;
   --card: #111827;
-  --accent: #60a5fa;
+  --accent: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
 }
 
 html, body {
   background: var(--bg);
   color: var(--fg);
+  font-family: 'Inter', ui-sans-serif, system-ui;
+  scroll-behavior: smooth;
 }
 
+/* Container */
 .container {
   @apply mx-auto max-w-6xl px-4;
 }
 
+/* Section */
 .section {
-  @apply py-16 md:py-24;
+  @apply py-20 md:py-28;
 }
 
 .section-title {
-  @apply text-3xl md:text-4xl font-semibold tracking-tight mb-8;
+  @apply text-3xl md:text-5xl font-bold tracking-tight mb-12 text-center;
+  background: var(--accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.badge {
-  @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm;
-}
-
+/* Card */
 .card {
-  @apply rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur;
+  @apply rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur transition-transform transform hover:-translate-y-1 hover:shadow-2xl;
 }
 
+/* Badge */
+.badge {
+  @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm transition-colors hover:bg-gradient-to-r hover:from-blue-500 hover:to-green-400 hover:text-white;
+}
+
+/* Navbar links */
 .nav-link {
   @apply text-sm md:text-base text-gray-300 hover:text-white transition-colors;
 }

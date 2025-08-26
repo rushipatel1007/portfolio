@@ -35,7 +35,7 @@ export type Resume = {
 
 export const resume: Resume = {
   name: "Rushi Patel",
-  title: "Sr. Full Stack Developer",
+  title: "Full Stack Developer",
   location: "Toronto, ON, Canada",
   phone: "+1 (647) 309 3951",
   email: "rushipatel100720@gmail.com",
@@ -62,7 +62,7 @@ export const resume: Resume = {
   experience: [
     {
       company: "Reactivestax Technologies",
-      role: "Sr. Full Stack Developer",
+      role: "Full Stack Developer",
       location: "Mississauga, ON",
       period: "Aug 2024 – Present",
       bullets: [

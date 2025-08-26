@@ -1,44 +1,76 @@
+"use client";
+
 import Section from "@/components/Section";
 import Badge from "@/components/Badge";
 import ExperienceItem from "@/components/ExperienceItem";
 import ProjectCard from "@/components/ProjectCard";
 import { resume } from "@/lib/resume";
+import { motion } from "framer-motion";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="container pt-16 md:pt-24 pb-10">
-        <div className="card p-8 md:p-12">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                {resume.name}
-              </h1>
-              <p className="mt-3 text-lg text-gray-300">{resume.title} · {resume.location}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Badge>Java</Badge>
-                <Badge>Spring Boot</Badge>
-                <Badge>React</Badge>
-                <Badge>Kafka</Badge>
-                <Badge>AWS</Badge>
-              </div>
-            </div>
-            <div className="text-sm text-gray-300">
-              <p><span className="text-gray-400">Phone:</span> {resume.phone}</p>
-              <p><span className="text-gray-400">Email:</span> <a className="underline" href={"mailto:" + resume.email}>{resume.email}</a></p>
-              <p><span className="text-gray-400">LinkedIn:</span> <a className="underline" href={resume.linkedin} target="_blank" rel="noreferrer">/in/rushipatel10700</a></p>
-            </div>
-          </div>
-          <ul className="mt-6 list-disc pl-6 space-y-2 text-gray-200">
-            {resume.summary.map((s, i) => <li key={i}>{s}</li>)}
-          </ul>
-        </div>
+      <section className="container pt-28 pb-20 text-center">
+        <motion.h1
+          className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent"
+          style={{ backgroundImage: "var(--accent)" }}
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {resume.name}
+        </motion.h1>
+        <motion.p
+          className="mt-4 text-xl md:text-2xl text-gray-300"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        >
+          {resume.title} · {resume.location}
+        </motion.p>
+
+        <motion.div
+          className="mt-6 flex flex-wrap justify-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          <Badge>Java</Badge>
+          <Badge>Spring Boot</Badge>
+          <Badge>React</Badge>
+          <Badge>Kafka</Badge>
+          <Badge>AWS</Badge>
+        </motion.div>
+
+        <motion.div
+          className="mt-10 flex justify-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          <a
+            href="mailto:rushipatel100720@gmail.com"
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-green-400 font-medium shadow-lg hover:opacity-90 transition"
+          >
+            Contact Me
+          </a>
+          <a
+            href={resume.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 font-medium transition"
+          >
+            LinkedIn
+          </a>
+        </motion.div>
       </section>
 
       {/* Skills */}
       <Section id="skills" title="Technical Skills">
         <div className="grid md:grid-cols-2 gap-6">
+        <Reveal>
           {Object.entries(resume.skills).map(([k, v]) => (
             <div key={k} className="card">
               <h3 className="text-lg font-semibold mb-3">{k}</h3>
@@ -47,6 +79,7 @@ export default function Home() {
               </div>
             </div>
           ))}
+          </Reveal>
         </div>
       </Section>
 
