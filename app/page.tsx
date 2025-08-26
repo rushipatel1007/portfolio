@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="container pt-20 md:pt-28 pb-16 text-center">
+      <section className="container pt-16 md:pt-20 pb-12 text-center">
         <motion.h1
           className="text-4xl md:text-6xl font-extrabold bg-clip-text text-transparent"
           style={{ backgroundImage: "var(--accent)" }}
